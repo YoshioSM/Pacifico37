@@ -1,6 +1,7 @@
 import React from 'react'
 import { icon } from '../../assets/Icons';
 
+
 export default function Footer() {
   const footerNavs = [
     {

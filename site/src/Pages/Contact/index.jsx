@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useForm } from "react-hook-form";
 import supabase from "../../config/supaconfig";
+import ReCAPTCHA from "react-google-recaptcha";
 
+// 6LdZ0L8rAAAAAG7LbQFgB0ElqpjEv0_IXtC4f-uR
 
 export default function ContactSection() {
   
@@ -18,6 +20,7 @@ export default function ContactSection() {
     },
   });
 
+  const [capVal, setCapVal] = useState(null);
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
@@ -152,12 +155,18 @@ export default function ContactSection() {
               </p>
             )}
 
+              {/* captcha */}
           <div className="m-5">
-            
+            <ReCAPTCHA
+            sitekey="6LdZ0L8rAAAAAG7LbQFgB0ElqpjEv0_IXtC4f-uR"
+            onChange={val => setCapVal(val)}
+            />
           </div>
             <button
+              disabled={!capVal}
               type="submit"
               className="w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+
             >
               Enviar
             </button>
