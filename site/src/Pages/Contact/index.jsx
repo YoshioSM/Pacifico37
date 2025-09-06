@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import supabase from "../../config/supaconfig";
 import ReCAPTCHA from "react-google-recaptcha";
 
-// 6LdZ0L8rAAAAAG7LbQFgB0ElqpjEv0_IXtC4f-uR
 
 export default function ContactSection() {
   
@@ -32,6 +31,8 @@ export default function ContactSection() {
           telefono: data.telefono.trim(),
         },
       ]);
+
+      window.location.reload(true)
 
       if (error) throw error;
       alert("Formulario enviado con éxito ✅");
@@ -102,7 +103,7 @@ export default function ContactSection() {
                 type="text"
                 {...register("nombre", {
                   required: "El nombre es obligatorio",
-                  maxLength: { value: 50, message: "Máximo 50 caracteres" },
+                  maxLength: { value: 35, message: "Máximo 35 caracteres" },
                   pattern: {
                     value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
                     message: "El nombre solo puede contener letras y espacios",
@@ -158,7 +159,7 @@ export default function ContactSection() {
               {/* captcha */}
           <div className="m-5">
             <ReCAPTCHA
-            sitekey="6LdZ0L8rAAAAAG7LbQFgB0ElqpjEv0_IXtC4f-uR"
+            sitekey={import.meta.env.VITE_SITE_KEY}
             onChange={val => setCapVal(val)}
             />
           </div>
