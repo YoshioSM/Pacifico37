@@ -6,7 +6,7 @@ export default function Footer() {
   const footerNavs = [
     {
       items: [
-        { href: '/', name: 'About' },
+        { href: '/About', name: 'About' },
        
       ]
     },

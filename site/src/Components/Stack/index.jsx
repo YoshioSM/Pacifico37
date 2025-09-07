@@ -48,12 +48,11 @@ export default function Stack({
     cardsData.length
       ? cardsData
       : [
-        { id: 1, img: fotos.Floower },
-        { id: 2, img: fotos.Gym },
-        { id: 3, img: fotos.Pool4 },
-        { id: 4, img: fotos.kitchenv1 },
-        { id: 5, img: fotos.Room2 },
-        { id: 6, img: fotos.thiss }
+        { id: 1, img: fotos.Room },
+        { id: 2, img: fotos.kitchenv1 },
+        { id: 3, img: fotos.Room2 },
+        { id: 4, img: fotos.sofa },
+        { id: 5, img: fotos.sofa1 },  
       ]
   );
 
