@@ -89,7 +89,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-3xl transform rotate-6"></div>
                 <Stack
                   randomRotation={true}
-                  sensitivity={80}
+                  sensitivity={140}
                   sendToBackOnClick={true}
                   cardDimensions={{ width: 290, height: 290 }}
                 />
