@@ -1,4 +1,5 @@
 import React from "react";
+import { fotos } from "../../assets/Fotos";
 
 function index() {
   return (
@@ -10,7 +11,7 @@ function index() {
               <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src="https://dummyimage.com/1200x500"
+                src={fotos.main}
               />
             </div>
             <div className="flex flex-col sm:flex-row mt-10">
@@ -31,29 +32,23 @@ function index() {
                 </div>
                 <div className="flex flex-col items-center text-center justify-center">
                   <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
-                    Phoebe Caulfield
+                    Yoshio Soto Montes
                   </h2>
                   <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                   <p className="text-base">
-                    Raclette knausgaard hella meggs normcore williamsburg enamel
-                    pin sartorial venmo tbh hot chicken gentrify portland.
+                    In the name of the Code, and of the Disk, and of the Holy
+                    System. Our Core, which art in Data, Hallowed be Thy Code.
+                    Truth of all Truths. On Disk as it is on Screen. Forever and
+                    ever.
                   </p>
                 </div>
               </div>
               <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                 <p className="leading-relaxed text-lg mb-4">
-                  Meggings portland fingerstache lyft, post-ironic fixie man bun
-                  banh mi umami everyday carry hexagon locavore direct trade art
-                  party. Locavore small batch listicle gastropub farm-to-table
-                  lumbersexual salvia messenger bag. Coloring book flannel
-                  truffaut craft beer drinking vinegar sartorial, disrupt
-                  fashion axe normcore meh butcher. Portland 90's scenester
-                  vexillologist forage post-ironic asymmetrical, chartreuse
-                  disrupt butcher paleo intelligentsia pabst before they sold
-                  out four loko. 3 wolf moon brooklyn.
+                  Pagina elaborada con react + js con componentes de distintas librerias de diseño como tailwind, react bits, tailblocks. 
                 </p>
                 <a className="text-indigo-500 inline-flex items-center">
-                  Learn More
+                  contact Info
                   <svg
                     fill="none"
                     stroke="currentColor"

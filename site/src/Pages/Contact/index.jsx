@@ -19,11 +19,13 @@ export default function ContactSection() {
     },
   });
 
+  const [loading, setLoading] = useState(false);
   const [capVal, setCapVal] = useState(null);
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const { error } = await supabase.from("Contactos").insert([
         {
           nombre: data.nombre.trim(),
@@ -32,7 +34,7 @@ export default function ContactSection() {
         },
       ]);
 
-      window.location.reload(true)
+      window.location.reload(true);
 
       if (error) throw error;
       alert("Formulario enviado con éxito ✅");
@@ -78,7 +80,7 @@ export default function ContactSection() {
                 className="text-indigo-500 leading-relaxed"
                 href="mailto:example@email.com"
               >
-                example@email.com
+                info@pacifico37.site
               </a>
               <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                 TELEFONO
@@ -164,7 +166,7 @@ export default function ContactSection() {
             />
           </div>
             <button
-              disabled={!capVal}
+              disabled={!capVal || loading}
               type="submit"
               className="w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
 
@@ -181,8 +183,7 @@ export default function ContactSection() {
           </div>
 
           <p className="text-xs text-gray-500 mt-3">
-            Tu datos estaran encriptados y seguros, solo los podra ver el
-            adminstrador de la pagina.
+            Si no te llega un correo en 24 horas revisa tu bandeja de spam.
           </p>
         </div>
       </div>
