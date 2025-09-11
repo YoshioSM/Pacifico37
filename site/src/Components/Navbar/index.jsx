@@ -27,9 +27,9 @@ export default function Navbar() {
           
           {/* Logo mejorado */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center space-x-2 group">
+            <a aria-label="Return to home" href="/" className="flex items-center space-x-2 group">
              <div className="w-50 h-50">
-                <img src={icon.pacifico37} />
+                <img alt="Logo Pacifico37" src={icon.pacifico37} />
              </div>
             </a>
           </div>
