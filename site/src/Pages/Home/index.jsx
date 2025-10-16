@@ -1,6 +1,7 @@
 import {} from "react";
 import Stack from "../../Components/Stack";
 import { fotos } from "../../assets/Fotos";
+import AnimatedContent from "../../Components/AnimetedContent";
 import {
   features,
   icon,
@@ -9,10 +10,6 @@ import {
 } from "../../assets/Icons";
 
 export default function Home() {
-
-
-
-
   return (
     <main className="pt-16">
       {/* Hero Section - Mejorado */}
@@ -68,7 +65,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stack Section - Rediseñado */}
+      {/* Stack Section  */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -99,50 +96,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section - Completamente renovado */}
-      <section id="Carac" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      {/* Features Section */}
+
+      <section id="Carac" className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-14 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
               Características de la propiedad
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Cada detalle de esta propiedad ha sido cuidadosamente diseñado
               para ofrecerte la mejor experiencia de vida costera.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="order-2 lg:order-1">
-              <img
-                className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
-                src={fotos.FrontView}
-                alt="Vista interior de la propiedad"
-              />
-            </div>
+          <div className="space-y-16 lg:space-y-24 max-w-6xl mx-auto">
+            {propertyFeatures.map((feature, idx) => (
+              <div
+                key={idx}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
+              >
+                {/* Imagen - Siempre primero en móvil, alterna en desktop */}
+                <div
+                  className={`order-1 ${
+                    idx % 2 === 0 ? "lg:order-1" : "lg:order-2"
+                  }`}
+                >
+                  <img
+                    className="w-full h-[280px] sm:h-[350px] lg:h-[400px] object-cover rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl hover:scale-105 transition-transform duration-500"
+                    src={fotos.FrontView}
+                    alt={feature.title}
+                  />
+                </div>
 
-            <div className="order-1 lg:order-2 space-y-8">
-              {propertyFeatures.map((feature, idx) => (
-                <div key={idx} className="flex items-start space-x-4 group">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {feature.description}
-                    </p>
+                {/* Contenido - Siempre segundo en móvil, alterna en desktop */}
+                <div
+                  className={`order-2 ${
+                    idx % 2 === 0 ? "lg:order-2" : "lg:order-1"
+                  }`}
+                >
+                  <div className="flex items-start space-x-3 sm:space-x-4 group">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4">
+                        {feature.title}
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section - Mejorado */}
+      {/* Testimonials Section*/}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -178,7 +191,10 @@ export default function Home() {
                       </svg>
                     ))}
                     <div className="ml-3">
-                      <a href="https://www.airbnb.mx/rooms/1314534438515488460" target="_blank">
+                      <a
+                        href="https://www.airbnb.mx/rooms/1314534438515488460"
+                        target="_blank"
+                      >
                         <p>ver en Airbnb</p>
                       </a>
                     </div>
@@ -201,7 +217,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Amenidades Section - Renovado */}
+      {/* Amenidades Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -234,6 +250,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Precio */}
+
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Amenidades de Lujo
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Disfruta de servicios y comodidades diseñados para elevar tu
+              calidad de vida en este exclusivo complejo residencial frente al
+              mar.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
         <div className="container mx-auto px-4 text-center">
@@ -246,13 +279,11 @@ export default function Home() {
               mismo y da el primer paso hacia tu nueva vida frente al mar.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-
-           <a href="/Contact">
-               <button className="px-8 py-4 bg-white text-blue-900 hover:bg-gray-100 font-semibold rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300">
-                Contactar Ahora
-              </button>
-           </a>
-              
+              <a href="/Contact">
+                <button className="px-8 py-4 bg-white text-blue-900 hover:bg-gray-100 font-semibold rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300">
+                  Contactar Ahora
+                </button>
+              </a>
             </div>
           </div>
         </div>
