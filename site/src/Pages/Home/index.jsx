@@ -2,8 +2,9 @@ import {} from "react";
 import Stack from "../../Components/Stack";
 import { fotos } from "../../assets/Fotos";
 import AnimatedContent from "../../Components/AnimetedContent";
+import Carousel from "../../Components/Carousel";
 import {
-  features,
+  
   icon,
   propertyFeatures,
   testimonials,
@@ -219,7 +220,7 @@ export default function Home() {
 
       {/* Amenidades Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+             <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Amenidades de Lujo
@@ -230,43 +231,13 @@ export default function Home() {
               mar.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {features.map((item, idx) => (
-              <div
-                key={idx}
-                className="text-center group hover:transform hover:scale-105 transition-all duration-300"
-              >
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg">
-                  <img src={item.icon} className="w-8 h-8" alt={item.title} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
+            <Carousel />
+           </section>
 
       {/* Precio */}
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Amenidades de Lujo
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Disfruta de servicios y comodidades diseñados para elevar tu
-              calidad de vida en este exclusivo complejo residencial frente al
-              mar.
-            </p>
-          </div>
-        </div>
-      </section>
-
+ 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
         <div className="container mx-auto px-4 text-center">
