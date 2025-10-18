@@ -3,17 +3,12 @@ import Stack from "../../Components/Stack";
 import { fotos } from "../../assets/Fotos";
 import AnimatedContent from "../../Components/AnimetedContent";
 import Carousel from "../../Components/Carousel";
-import {
-  
-  icon,
-  propertyFeatures,
-  testimonials,
-} from "../../assets/Icons";
+import { icon, propertyFeatures, testimonials } from "../../assets/Icons";
 
 export default function Home() {
   return (
     <main className="pt-16">
-      {/* Hero Section - Mejorado */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background con overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-gray-900/80 z-10"></div>
@@ -220,7 +215,7 @@ export default function Home() {
 
       {/* Amenidades Section */}
       <section className="py-20 bg-white">
-             <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Amenidades de Lujo
@@ -232,12 +227,57 @@ export default function Home() {
             </p>
           </div>
         </div>
-            <Carousel />
-           </section>
+        <Carousel />
+      </section>
 
       {/* Precio */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-8">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-center">
+              <p className="text-blue-100 text-lg mb-2">Precio de Venta</p>
+              <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+                $2,800,000 MXN
+              </div>
+            </div>
+            <div className="p-8 md:p-12">
+              {/* Destacados */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div className="flex items-start space-x-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                
+                  </div>
+                  <div>
+                    <h4 className="font-semibold  text-gray-900 mb-1">Aceptamos todo credito hipotecario</h4>
+                  </div>
+                </div>
 
- 
+                <div className="flex items-start space-x-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Gran Inversión</h4>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Financiamiento</h4>
+                  </div>
+                </div>
+              </div>
+
+     
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
         <div className="container mx-auto px-4 text-center">
