@@ -2,12 +2,8 @@ import {} from "react";
 import Stack from "../../Components/Stack";
 import { fotos } from "../../assets/Fotos";
 import AnimatedContent from "../../Components/AnimetedContent";
-import {
-  features,
-  icon,
-  propertyFeatures,
-  testimonials,
-} from "../../assets/Icons";
+import { features, icon, testimonials } from "../../assets/Icons";
+import Gallery from "../../Components/Gallery";
 
 export default function Home() {
   return (
@@ -101,57 +97,84 @@ export default function Home() {
       <section id="Carac" className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-14 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Características de la propiedad
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Cada detalle de esta propiedad ha sido cuidadosamente diseñado
               para ofrecerte la mejor experiencia de vida costera.
             </p>
           </div>
 
-          <div className="space-y-16 lg:space-y-24 max-w-6xl mx-auto">
-            {propertyFeatures.map((feature, idx) => (
-              <div
-                key={idx}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
-              >
-                {/* Imagen - Siempre primero en móvil, alterna en desktop */}
-                <div
-                  className={`order-1 ${
-                    idx % 2 === 0 ? "lg:order-1" : "lg:order-2"
-                  }`}
-                >
+          {/* cards 1  */}
+          <AnimatedContent>
+            <div className=" bg-gray-100 p-4 flex items-center justify-center">
+              <div className=" max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                <div className="flex-1 p-8 lg:p-12">
+                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    Título de la Card
+                  </h2>
+                  <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                    El diseño se adapta perfectamente a cualquier tamaño de
+                  </p>
+                </div>
+                <div className="lg:w-1/2 h-64 lg:h-auto">
                   <img
-                    className="w-full h-[280px] sm:h-[350px] lg:h-[400px] object-cover rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl hover:scale-105 transition-transform duration-500"
-                    src={fotos.FrontView}
-                    alt={feature.title}
+                    src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=1000&fit=crop"
+                    alt="Imagen decorativa"
+                    className="w-full h-full object-cover"
                   />
                 </div>
+              </div>
+            </div>
+          </AnimatedContent>
 
-                {/* Contenido - Siempre segundo en móvil, alterna en desktop */}
-                <div
-                  className={`order-2 ${
-                    idx % 2 === 0 ? "lg:order-2" : "lg:order-1"
-                  }`}
-                >
-                  <div className="flex items-start space-x-3 sm:space-x-4 group">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4">
-                        {feature.title}
-                      </h3>
-                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
+          {/* card 2 */}
+
+          <AnimatedContent>
+            <div className=" mt-15 bg-gray-100 px-4 lg:px-8 xl:px-12 flex items-center justify-center">
+              <div className="max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row-reverse">
+                <div className="flex-1 p-8 lg:p-12">
+                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    Título de la Card
+                  </h2>
+                  <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                    El diseño se adapta perfectamente a cualquier tamaño de
+                  </p>
+                </div>
+                <div className="lg:w-1/2 h-64 lg:h-auto">
+                  <img
+                    src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=1000&fit=crop"
+                    alt="Imagen decorativa"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </AnimatedContent>
+
+          {/* card 3 */}
+          <AnimatedContent>
+            <div className=" bg-gray-100 p-4 flex items-center justify-center">
+              <div className=" max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                <div className="flex-1 p-8 lg:p-12">
+                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    Título de la Card
+                  </h2>
+                  <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Esta es una card grande y responsiva construida con React y
+                  </p>
+                </div>
+                <div className="lg:w-1/2 h-64 lg:h-auto">
+                  <img
+                    src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=1000&fit=crop"
+                    alt="Imagen decorativa"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </AnimatedContent>
         </div>
       </section>
 
@@ -230,23 +253,7 @@ export default function Home() {
               mar.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {features.map((item, idx) => (
-              <div
-                key={idx}
-                className="text-center group hover:transform hover:scale-105 transition-all duration-300"
-              >
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg">
-                  <img src={item.icon} className="w-8 h-8" alt={item.title} />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <Gallery />
         </div>
       </section>
 
@@ -256,13 +263,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Amenidades de Lujo
+              precio
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Disfruta de servicios y comodidades diseñados para elevar tu
-              calidad de vida en este exclusivo complejo residencial frente al
-              mar.
-            </p>
           </div>
         </div>
       </section>
