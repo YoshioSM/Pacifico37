@@ -3,7 +3,8 @@ import Stack from "../../Components/Stack";
 import { fotos } from "../../assets/Fotos";
 import AnimatedContent from "../../Components/AnimetedContent";
 import { icon, testimonials } from "../../assets/Icons";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Gallery from "../../Components/Gallery";
 
 export default function Home() {
@@ -291,7 +292,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Analytics/> 
+      <Analytics/>
+      <SpeedInsights/>
     </main>
   );
 }

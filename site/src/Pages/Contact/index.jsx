@@ -1,11 +1,11 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import supabase from "../../config/supaconfig";
 import ReCAPTCHA from "react-google-recaptcha";
-
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function ContactSection() {
-  
   const {
     register,
     handleSubmit,
@@ -62,8 +62,7 @@ export default function ContactSection() {
             title="map"
             src="https://maps.google.com/maps?width=100%&height=600&hl=es&q=Oceano+Pacífico+37,+Villas+Terrasol,+Aeropuerto,+39893+Acapulco+de+Juárez,+Gro.+(Mi%20Negocio)&ie=UTF8&t=&z=17&iwloc=B&output=embed"
           />
-          <div className="relative flex flex-wrap py-6 rounded h-100 w-100 px-6">
-          </div>
+          <div className="relative flex flex-wrap py-6 rounded h-100 w-100 px-6"></div>
         </div>
         <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
           <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
@@ -134,18 +133,17 @@ export default function ContactSection() {
               </p>
             )}
 
-              {/* captcha */}
-          <div className="m-5">
-            <ReCAPTCHA
-            sitekey={import.meta.env.VITE_SITE_KEY}
-            onChange={val => setCapVal(val)}
-            />
-          </div>
+            {/* captcha */}
+            <div className="m-5">
+              <ReCAPTCHA
+                sitekey={import.meta.env.VITE_SITE_KEY}
+                onChange={(val) => setCapVal(val)}
+              />
+            </div>
             <button
               disabled={!capVal || loading}
               type="submit"
               className="w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-
             >
               Enviar
             </button>
@@ -163,6 +161,8 @@ export default function ContactSection() {
           </p>
         </div>
       </div>
+      <Analytics />
+      <SpeedInsights />
     </section>
   );
 }
