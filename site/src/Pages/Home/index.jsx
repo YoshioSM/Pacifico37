@@ -2,7 +2,7 @@ import {} from "react";
 import Stack from "../../Components/Stack";
 import { fotos } from "../../assets/Fotos";
 import AnimatedContent from "../../Components/AnimetedContent";
-import { features, icon, testimonials } from "../../assets/Icons";
+import { icon, testimonials } from "../../assets/Icons";
 import Gallery from "../../Components/Gallery";
 
 export default function Home() {
