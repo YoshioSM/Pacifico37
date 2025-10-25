@@ -51,7 +51,7 @@ export default function Footer() {
       name: 'Airbnb',
       icon: (
         <div className='w-6 '>
-          <img className='' src={icon.airbnb} alt="" />
+          <img className='' src={icon.airbnbBlanco} alt="" />
         </div>
       )
     },
@@ -163,7 +163,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-sm text-gray-400 mb-4 md:mb-0">
-              © 2024 Pacifico37. Todos los derechos reservados.
+              © 2025 Pacifico37. Todos los derechos reservados.
             </div>
           </div>
         </div>
