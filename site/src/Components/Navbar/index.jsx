@@ -8,7 +8,7 @@ export default function Navbar() {
   const navigation = [
     { title: "Inicio", path: "/" },
     { title: "Galería", path: "/Gallery" },
-    { title: "Contacto", path: "/Contact" },
+ 
   ];
 
   useEffect(() => {
