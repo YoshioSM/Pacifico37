@@ -163,7 +163,7 @@ const {
           {/* cards 1  */}
           <AnimatedContent>
             <div className=" bg-gray-100 p-4 flex items-center justify-center">
-              <div className=" max-w-6xl w-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col lg:flex-row">
+              <div className=" max-w-6xl w-full bg-white rounded-2xl overflow-hidden flex flex-col lg:flex-row">
                 <div className="flex-1 p-8 lg:p-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Totalmente equipado
@@ -188,7 +188,7 @@ const {
 
           <AnimatedContent>
             <div className=" mt-15 bg-gray-100 px-4 lg:px-8 xl:px-12 flex items-center justify-center">
-              <div className="max-w-6xl w-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col lg:flex-row-reverse">
+              <div className="max-w-6xl w-full bg-white rounded-2xl overflow-hidden flex flex-col lg:flex-row-reverse">
                 <div className="flex-1 p-8 lg:p-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Zonas recreativas
@@ -218,7 +218,7 @@ const {
           {/* card 3 */}
           <AnimatedContent>
             <div className=" bg-gray-100 p-4 flex items-center justify-center">
-              <div className=" max-w-6xl w-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col lg:flex-row">
+              <div className=" max-w-6xl w-full bg-white rounded-2xl  overflow-hidden flex flex-col lg:flex-row">
                 <div className="flex-1 p-8 lg:p-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Seguridad 24/7
