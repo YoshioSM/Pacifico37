@@ -1,3 +1,4 @@
+import { useEffect  } from "react";
 import ImageGallery from "react-image-gallery";
 import { fotos } from "../../assets/Fotos";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -35,6 +36,23 @@ const images = [
 ];
 
 export default function Gallery() {
+
+  useEffect(() => {
+    isMovile();
+  }, []);
+
+  const isMovile = () => {
+    if (window.innerWidth <= 768) {
+      console.log("es movil");
+      return true;
+    } else {
+      console.log("no es movil");
+      return false;
+    }
+
+  }
+
+
   return (
    
       <ImageGallery items={images} />

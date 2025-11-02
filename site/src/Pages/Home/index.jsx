@@ -111,7 +111,7 @@ export default function Home() {
           {/* cards 1  */}
           <AnimatedContent>
             <div className=" bg-gray-100 p-4 flex items-center justify-center">
-              <div className=" max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+              <div className=" max-w-6xl w-full bg-white rounded-2xl overflow-hidden flex flex-col lg:flex-row">
                 <div className="flex-1 p-8 lg:p-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Totalmente equipado
@@ -136,7 +136,7 @@ export default function Home() {
 
           <AnimatedContent>
             <div className=" mt-15 bg-gray-100 px-4 lg:px-8 xl:px-12 flex items-center justify-center">
-              <div className="max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row-reverse">
+              <div className="max-w-6xl w-full bg-white rounded-2xl  overflow-hidden flex flex-col lg:flex-row-reverse">
                 <div className="flex-1 p-8 lg:p-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Zonas recreativas
@@ -166,7 +166,7 @@ export default function Home() {
           {/* card 3 */}
           <AnimatedContent>
             <div className=" bg-gray-100 p-4 flex items-center justify-center">
-              <div className=" max-w-6xl w-full bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+              <div className=" max-w-6xl w-full bg-white rounded-2xl  overflow-hidden flex flex-col lg:flex-row">
                 <div className="flex-1 p-8 lg:p-12">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Seguridad 24/7
@@ -260,7 +260,7 @@ export default function Home() {
       </AnimatedContent>
 
       {/* Amenidades Section */}
-      <AnimatedContent>
+
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
@@ -275,11 +275,11 @@ export default function Home() {
             <Gallery />
           </div>
         </section>
-      </AnimatedContent>
+
 
       {/* Precio */}
 
-      <AnimatedContent>
+
         <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -334,7 +334,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </AnimatedContent>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
