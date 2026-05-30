@@ -12,7 +12,7 @@ export default function Footer() {
     },
     {
       items: [
-        {href: 'https://www.linkedin.com/in/yoshio-soto-63a042232', name: 'Linkedin'}
+        {href: '', name: 'Linkedin'}
       ]
     },
     { 
@@ -24,7 +24,7 @@ export default function Footer() {
 
   const socialMedia = [
     {
-      href: 'https://facebook.com/pacifico37',
+      href: '7',
       name: 'Facebook',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ export default function Footer() {
       )
     },
     {
-      href: 'https://wa.me/7442584848',
+      href: '',
       name: 'WhatsApp',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ export default function Footer() {
 
   const contactInfo = {
     address: "Oceano Pacífico 37, Villas Terrasol, Aeropuerto, 39893 Acapulco de Juárez, Gro.",
-    phone: "+527442584848",
+    phone: "",
     email: "info@pacifico37.site",
   };
 
