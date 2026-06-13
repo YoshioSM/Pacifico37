@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { fotos } from "../../assets/Fotos";
 import { X } from "lucide-react";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
-export default function index() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState(null);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = (imageSrc) => {
@@ -198,8 +194,6 @@ export default function index() {
           </div>
         </div>
       )}
-      <Analytics />
-      <SpeedInsights />
     </section>
   );
 }

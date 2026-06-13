@@ -1,7 +1,6 @@
-import React from "react";
 import { fotos } from "../../assets/Fotos";
 
-function index() {
+export default function AboutPage() {
   return (
     <div className="mt-5">
       <section className="text-gray-600 body-font">
@@ -9,7 +8,7 @@ function index() {
           <div className="lg:w-4/6 mx-auto">
             <div className="rounded-lg h-64 overflow-hidden">
               <img
-                alt="content"
+                alt="Vista principal de Pacifico37"
                 className="object-cover object-center h-full w-full"
                 src={fotos.main}
               />
@@ -20,9 +19,9 @@ function index() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-10 h-10"
                     viewBox="0 0 24 24"
                   >
@@ -35,26 +34,29 @@ function index() {
                     Yoshio Soto Montes
                   </h2>
                   <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                  <p className="text-base">
-                    In the name of the Code, and of the Disk, and of the Holy
-                    System. Our Core, which art in Data, Hallowed be Thy Code.
-                    Truth of all Truths. On Disk as it is on Screen. Forever and
-                    ever.
+                  <p className="text-base text-gray-600">
+                    Desarrollador web y dueño de Pacifico37. Si tienes alguna
+                    duda o comentario, no dudes en contactarme.
                   </p>
                 </div>
               </div>
               <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                 <p className="leading-relaxed text-lg mb-4">
-                  Pagina elaborada con react + js con componentes de distintas librerias de diseño como tailwind, react bits, tailblocks. 
+                  Sitio elaborado con React + Vite. Usa Tailwind CSS para los
+                  estilos, Supabase como base de datos para el formulario de
+                  contacto y Vercel para el despliegue.
                 </p>
-                <a className="text-indigo-500 inline-flex items-center">
-                  contact Info
+                <a
+                  href="/Contact"
+                  className="text-indigo-500 inline-flex items-center hover:text-indigo-700 transition-colors"
+                >
+                  Contacto
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
                   >
@@ -69,5 +71,3 @@ function index() {
     </div>
   );
 }
-
-export default index;

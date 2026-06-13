@@ -127,6 +127,8 @@ export default function Footer() {
                   <a
                     key={idx}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 bg-white/10 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
                     aria-label={social.name}
                   >
@@ -163,7 +165,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-sm text-gray-400 mb-4 md:mb-0">
-              © 2025 Pacifico37. Todos los derechos reservados.
+            © 2026 Pacifico37. Todos los derechos reservados.
             </div>
           </div>
         </div>
