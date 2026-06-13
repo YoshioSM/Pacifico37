@@ -25,6 +25,7 @@ import pool7 from "./pool7.jpg";
 import salabonita from "./salabonita.jpg";
 import entrada from "./entrada.png";
 import main from "./main.jpg";
+import homeland from "./homeland.jpg";
 
 export const fotos = {
   entrada,
@@ -54,4 +55,5 @@ export const fotos = {
   tenis,
   thiss,
   main,
+  homeland,
 };

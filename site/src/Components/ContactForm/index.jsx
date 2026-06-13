@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Send, MessageCircle, Loader2 } from "lucide-react";
 import supabase from "../../config/supaconfig";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -10,11 +11,7 @@ export default function ContactForm() {
     reset,
     formState: { errors, isSubmitSuccessful },
   } = useForm({
-    defaultValues: {
-      nombre: "",
-      correo: "",
-      telefono: "",
-    },
+    defaultValues: { nombre: "", correo: "", telefono: "" },
   });
 
   const [loading, setLoading] = useState(false);
@@ -37,53 +34,58 @@ export default function ContactForm() {
       window.location.reload();
     } catch (err) {
       console.error(err.message);
-      alert("Hubo un error al enviar el formulario");
+      alert("Hubo un error al enviar el formulario. Intenta de nuevo.");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ nombre: "", correo: "", telefono: "" });
-    }
+    if (isSubmitSuccessful) reset({ nombre: "", correo: "", telefono: "" });
   }, [isSubmitSuccessful, reset]);
 
+  const inputClass =
+    "w-full bg-[#0a1628] border border-[#1a3560] focus:border-[#c9a84c] focus:ring-1 focus:ring-[#c9a84c]/30 rounded-lg text-[#f5f0e8] placeholder-[#94a3b8]/50 py-3 px-4 text-sm outline-none transition-all duration-200";
+
+  const labelClass = "block text-xs font-semibold tracking-widest uppercase text-[#94a3b8] mb-2";
+
   return (
-    <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-      <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-        Contáctanos
-      </h2>
-      <p className="leading-relaxed mb-5 text-gray-600">
-        Contáctanos para agendar una visita, recibir informes de la propiedad o
-        agendar tus futuras vacaciones en Pacifico37.
+    <div className="p-8 rounded-2xl border border-[#1a3560]" style={{ background: "var(--navy)" }}>
+      <h3 className="font-display text-2xl font-bold text-[#f5f0e8] mb-2">
+        Envíanos un mensaje
+      </h3>
+      <p className="text-[#94a3b8] text-sm mb-6">
+        Contáctanos y nos pondremos en contacto contigo a la brevedad.
       </p>
 
-      {/* form */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">Nombre</label>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        {/* Nombre */}
+        <div>
+          <label className={labelClass}>Nombre completo</label>
           <input
             type="text"
+            placeholder="Tu nombre"
             {...register("nombre", {
               required: "El nombre es obligatorio",
               maxLength: { value: 35, message: "Máximo 35 caracteres" },
               pattern: {
                 value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
-                message: "El nombre solo puede contener letras y espacios",
+                message: "Solo letras y espacios",
               },
             })}
-            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className={inputClass}
           />
           {errors.nombre && (
-            <p className="text-red-500 text-sm mt-1">{errors.nombre.message}</p>
+            <p className="text-red-400 text-xs mt-1">{errors.nombre.message}</p>
           )}
         </div>
 
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">Correo</label>
+        {/* Correo */}
+        <div>
+          <label className={labelClass}>Correo electrónico</label>
           <input
             type="email"
+            placeholder="tu@correo.com"
             {...register("correo", {
               required: "El correo es obligatorio",
               maxLength: { value: 100, message: "Correo no válido" },
@@ -92,19 +94,19 @@ export default function ContactForm() {
                 message: "Formato de correo inválido",
               },
             })}
-            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className={inputClass}
           />
           {errors.correo && (
-            <p className="text-red-500 text-sm mt-1">{errors.correo.message}</p>
+            <p className="text-red-400 text-xs mt-1">{errors.correo.message}</p>
           )}
         </div>
 
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">
-            Teléfono (opcional)
-          </label>
+        {/* Teléfono */}
+        <div>
+          <label className={labelClass}>Teléfono <span className="text-[#94a3b8]/50 normal-case tracking-normal">(opcional)</span></label>
           <input
             type="tel"
+            placeholder="10 dígitos"
             {...register("telefono", {
               required: false,
               pattern: {
@@ -112,45 +114,48 @@ export default function ContactForm() {
                 message: "Debe tener exactamente 10 dígitos",
               },
             })}
-            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className={inputClass}
           />
           {errors.telefono && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.telefono.message}
-            </p>
+            <p className="text-red-400 text-xs mt-1">{errors.telefono.message}</p>
           )}
         </div>
 
-        {/* captcha */}
-        <div className="m-5">
+        {/* ReCAPTCHA */}
+        <div className="pt-1">
           <ReCAPTCHA
             sitekey={import.meta.env.VITE_SITE_KEY}
             onChange={(val) => setCapVal(val)}
+            theme="dark"
           />
         </div>
 
+        {/* Botones */}
         <button
-          disabled={!capVal || loading}
           type="submit"
-          className="w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed rounded text-lg transition-colors duration-200"
+          disabled={!capVal || loading}
+          className="btn-gold w-full disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
         >
-          {loading ? "Enviando..." : "Enviar"}
+          {loading ? (
+            <><Loader2 size={16} className="animate-spin" /> Enviando...</>
+          ) : (
+            <><Send size={16} /> Enviar mensaje</>
+          )}
         </button>
-      </form>
 
-      <div className="mt-3">
         <a
-          href="https://wa.me/7442584848"
+          href="https://wa.me/7445362416"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg transition-colors duration-200 flex items-center justify-center"
+          className="btn-ghost w-full flex items-center justify-center gap-2"
         >
-          Whatsapp
+          <MessageCircle size={16} />
+          Escribir por WhatsApp
         </a>
-      </div>
+      </form>
 
-      <p className="text-xs text-gray-500 mt-3">
-        Si no te llega un correo en 24 horas revisa tu bandeja de spam.
+      <p className="text-[#94a3b8]/50 text-xs text-center mt-4">
+        Si no recibes respuesta en 24 h, revisa tu carpeta de spam.
       </p>
     </div>
   );
