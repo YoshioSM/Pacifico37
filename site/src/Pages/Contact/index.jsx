@@ -1,131 +1,37 @@
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import supabase from "../../config/supaconfig";
-import ReCAPTCHA from "react-google-recaptcha";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import ContactForm from "../../Components/ContactForm";
+import { fotos } from "../../assets/Fotos";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+
+const contactInfo = [
+  {
+    icon: Phone,
+    label: "Teléfono",
+    value: "+52 744 536 2416",
+    href: "https://api.whatsapp.com/send/?phone=7445362416&text&type=phone_number&app_absent=0",
+  },
+  {
+    icon: Mail,
+    label: "Correo",
+    value: "info@pacifico37.site",
+    href: "mailto:info@pacifico37.site",
+  },
+  {
+    icon: MapPin,
+    label: "Dirección",
+    value: "Océano Pacífico 37, Villas Terrasol, Acapulco, Gro.",
+    href: "#mapa",
+  },
+  {
+    icon: Clock,
+    label: "Atención",
+    value: "Lunes a Domingo · 9:00 – 20:00",
+    href: null,
+  },
+];
 
 export default function ContactSection() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
-  } = useForm({
-    defaultValues: {
-      nombre: "",
-      correo: "",
-      telefono: "",
-    },
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [capVal, setCapVal] = useState(null);
-
-  const onSubmit = async (data, e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const { error } = await supabase.from("Contactos").insert([
-        {
-          nombre: data.nombre.trim(),
-          correo: data.correo.toLowerCase(),
-          telefono: data.telefono.trim(),
-        },
-      ]);
-
-      window.location.reload(true);
-
-      if (error) throw error;
-      alert("Formulario enviado con éxito ✅");
-      console.log(data);
-    } catch (err) {
-      console.error(err.message);
-      alert("Hubo un error al enviar el formulario");
-    }
-  };
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset({ nombre: "", correo: "", telefono: "" });
-    }
-  }, [isSubmitSuccessful, reset]);
-
   return (
-    <section className="text-gray-600 body-font relative">
-      <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <iframe
-            width="100%"
-            height="100%"
-            className="absolute inset-0"
-            title="map"
-            src="https://maps.google.com/maps?width=100%&height=600&hl=es&q=Oceano+Pacífico+37,+Villas+Terrasol,+Aeropuerto,+39893+Acapulco+de+Juárez,+Gro.+(Mi%20Negocio)&ie=UTF8&t=&z=17&iwloc=B&output=embed"
-          />
-          <div className="relative flex flex-wrap py-6 rounded h-100 w-100 px-6"></div>
-        </div>
-        <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
-            Contactanos
-          </h2>
-          <p className="leading-relaxed mb-5 text-gray-600">
-            Contáctanos para agendar una visita, recibir informes de la
-            propiedad o agendar tus futuras vacaciones en Pacifico37.{" "}
-          </p>
-          {/* form */}
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="relative mb-4">
-              <label className="leading-7 text-sm text-gray-600">Nombre</label>
-              <input
-                type="text"
-                {...register("nombre", {
-                  required: "El nombre es obligatorio",
-                  maxLength: { value: 35, message: "Máximo 35 caracteres" },
-                  pattern: {
-                    value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
-                    message: "El nombre solo puede contener letras y espacios",
-                  },
-                })}
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-              {errors.nombre && (
-                <p className="text-red-500">{errors.nombre.message}</p>
-              )}
-            </div>
-            <div className="relative mb-4">
-              <label className="leading-7 text-sm text-gray-600">Correo</label>
-              <input
-                type="email"
-                {...register("correo", {
-                  required: "El correo es obligatorio",
-                  maxLength: { value: 100, message: "Correo no valido" },
-                  pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "Formato de correo inválido",
-                  },
-                })}
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-              {errors.correo && (
-                <p className="text-red-500">{errors.correo.message}</p>
-              )}
-            </div>
-            <div className="relative mb-4">
-              <label className="leading-7 text-sm text-gray-600">
-                Telefono (opcional)
-              </label>
-              <input
-                type="number"
-                {...register("telefono", {
-                  required: false,
-                  pattern: {
-                    value: /^[0-9]{10}$/,
-                    message: "Debe tener exactamente 10 dígitos",
-                  },
-                })}
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-            </div>
+    <main style={{ background: "var(--navy)" }} className="min-h-screen">
 
             {errors.telefono && (
               <p className="text-red-500">
@@ -155,14 +61,71 @@ export default function ContactSection() {
               </button>
             </a>
           </div>
-
-          <p className="text-xs text-gray-500 mt-3">
-            Si no te llega un correo en 24 horas revisa tu bandeja de spam.
-          </p>
+          <h1 className="font-display text-4xl sm:text-5xl font-bold text-[#f5f0e8]">
+            Contáctanos
+          </h1>
         </div>
-      </div>
-      <Analytics />
-      <SpeedInsights />
-    </section>
+      </section>
+
+      {/* Contenido */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+
+            {/* Col izq: info + mapa */}
+            <div className="lg:col-span-2 space-y-8">
+              <div>
+                <h2 className="font-display text-2xl font-bold text-[#f5f0e8] mb-2">
+                  Hablemos
+                </h2>
+                <p className="text-[#94a3b8] text-sm leading-relaxed">
+                  Ya sea que quieras comprar, visitar o rentar para tus vacaciones,
+                  estamos aquí para ayudarte. Respondemos en menos de 24 horas.
+                </p>
+              </div>
+
+              {/* Info cards */}
+              <div className="space-y-3">
+                {contactInfo.map((item) => {
+                  const Wrapper = item.href ? "a" : "div";
+                  return (
+                    <Wrapper
+                      key={item.label}
+                      href={item.href || undefined}
+                      className="flex items-center gap-4 p-4 rounded-xl border border-[#1a3560] hover:border-[#c9a84c]/40 transition-colors group"
+                      style={{ background: "var(--navy-mid)" }}
+                    >
+                      <div className="w-10 h-10 rounded-full bg-[#c9a84c]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c9a84c]/20 transition-colors">
+                        <item.icon size={16} className="text-[#c9a84c]" />
+                      </div>
+                      <div>
+                        <p className="text-[#94a3b8] text-xs tracking-wider uppercase">{item.label}</p>
+                        <p className="text-[#f5f0e8] text-sm font-medium">{item.value}</p>
+                      </div>
+                    </Wrapper>
+                  );
+                })}
+              </div>
+
+              {/* Mapa */}
+              <div id="mapa" className="rounded-2xl overflow-hidden border border-[#1a3560] h-64">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  title="Ubicación Pacifico37"
+                  src="https://maps.google.com/maps?width=100%&height=400&hl=es&q=Oceano+Pac%C3%ADfico+37,+Villas+Terrasol,+Aeropuerto,+39893+Acapulco+de+Ju%C3%A1rez,+Gro.+(Mi%20Negocio)&ie=UTF8&t=&z=17&iwloc=B&output=embed"
+                />
+              </div>
+            </div>
+
+            {/* Col der: formulario */}
+            <div className="lg:col-span-3">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }

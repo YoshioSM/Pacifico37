@@ -1,26 +1,27 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import Gallery from "./Pages/Gallery";
 import Contact from "./Pages/Contact";
-import About from "./Pages/About"
+import About from "./Pages/About";
 
 function App() {
-
   return (
     <div>
-      
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/About" element={<About/>} />
+        <Route path="/About" element={<About />} />
       </Routes>
-
-    <Footer />
+      <Footer />
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
