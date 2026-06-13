@@ -33,33 +33,19 @@ export default function ContactSection() {
   return (
     <main style={{ background: "var(--navy)" }} className="min-h-screen">
 
-            {errors.telefono && (
-              <p className="text-red-500">
-                El teléfono debe tener exactamente 10 dígitos
-              </p>
-            )}
-
-            {/* captcha */}
-            <div className="m-5">
-              <ReCAPTCHA
-                sitekey={import.meta.env.VITE_SITE_KEY}
-                onChange={(val) => setCapVal(val)}
-              />
-            </div>
-            <button
-              disabled={!capVal || loading}
-              type="submit"
-              className="w-full text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-            >
-              Enviar
-            </button>
-          </form>
-          <div className="mt-3">
-            <a href="" target="_blank">
-              <button className="w-full text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                Whatsapp
-              </button>
-            </a>
+      {/* Hero pequeño */}
+      <section className="relative h-72 flex items-end pb-12 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${fotos.Pool1})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/60 to-[#0a1628]" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 w-full">
+          <div className="inline-flex items-center gap-3 mb-3">
+            <div className="h-px w-8 bg-[#c9a84c]" />
+            <span className="text-[#c9a84c] text-xs font-semibold tracking-[0.25em] uppercase">
+              Pacifico37
+            </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-[#f5f0e8]">
             Contáctanos
@@ -92,6 +78,8 @@ export default function ContactSection() {
                     <Wrapper
                       key={item.label}
                       href={item.href || undefined}
+                      target={item.href && item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href && item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="flex items-center gap-4 p-4 rounded-xl border border-[#1a3560] hover:border-[#c9a84c]/40 transition-colors group"
                       style={{ background: "var(--navy-mid)" }}
                     >
