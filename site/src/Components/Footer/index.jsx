@@ -131,7 +131,7 @@ export default function Footer() {
             {/* Precio destacado */}
             <div className="inline-block px-4 py-2 rounded-lg border border-[#c9a84c]/30 bg-[#c9a84c]/5">
               <p className="text-[#c9a84c] text-xs tracking-widest uppercase">Precio de venta</p>
-              <p className="font-display text-lg font-bold text-[#f5f0e8]">$2,800,000 MXN</p>
+              <p className="font-display text-lg font-bold text-[#f5f0e8]">$2,600,000 MXN</p>
             </div>
           </div>
 
