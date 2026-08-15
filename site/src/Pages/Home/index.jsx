@@ -305,7 +305,7 @@ export default function Home() {
                   Precio de lista
                 </p>
                 <div className="font-display text-5xl sm:text-6xl font-bold text-[#0a1628]">
-                  $2,800,000
+                 $2,600,000
                 </div>
                 <p className="text-[#0a1628]/70 text-lg font-medium mt-1">MXN</p>
               </div>
