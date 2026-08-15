@@ -131,7 +131,7 @@ export default function Home() {
                   <span className="text-[#c9a84c]">Terrasol Diamante</span>
                 </h2>
                 <p className="text-[#94a3b8] text-lg leading-relaxed mb-6">
-                  Pacífico 37 es un departamento completamente equipado ubicado en
+                  Pacífico 37 es una casa completamente equipado ubicado en
                   el exclusivo complejo residencial Terrasol Diamante, en la Costa
                   Diamante de Acapulco — una de las zonas costeras más privilegiadas
                   de México.

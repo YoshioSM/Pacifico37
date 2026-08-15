@@ -29,7 +29,7 @@ export const icon = {
     {
       name: "Alanna Sophía",
       role: "Huesped anterior",
-      text: "Excelente lugar para hospedarse, es bastante tranquilo y adecuado para ir en familia, las albercas bastante limpias. El departamento muy limpio y acogedor. Yoshio fue un anfitrión increíble, muy atento siempre a las dudas y bastante amigable, fue muy ameno poder hospedarse ahí gracias a la confianza que él nos daba. RECOMENDADO 100%"
+      text: "Excelente lugar para hospedarse, es bastante tranquilo y adecuado para ir en familia, las albercas bastante limpias. La casa es muy limpio y acogedor. Yoshio fue un anfitrión increíble, muy atento siempre a las dudas y bastante amigable, fue muy ameno poder hospedarse ahí gracias a la confianza que él nos daba. RECOMENDADO 100%"
     },
     {
       name: "Jorge",
